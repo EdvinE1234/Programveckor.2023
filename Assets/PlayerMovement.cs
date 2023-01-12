@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    int playerspeed = 10;
-   
+    [SerializeField]
+    float playerspeed = 10f;
+    Rigidbody2D rb2d;
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb2d = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -17,19 +18,19 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W))
         {
-            transform.position += Vector3.up * playerspeed * Time.deltaTime;
+            rb2d.AddForce(Vector2.up * playerspeed);
         }
         if (Input.GetKey(KeyCode.S))
         {
-            transform.position -= Vector3.up * playerspeed * Time.deltaTime;
+            rb2d.AddForce(Vector2.down * playerspeed);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            transform.position += Vector3.right * playerspeed * Time.deltaTime;
+            rb2d.AddForce(Vector2.right * playerspeed);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.position -= Vector3.right * playerspeed * Time.deltaTime;
+            rb2d.AddForce(Vector2.left * playerspeed);
         }
     }
 }
