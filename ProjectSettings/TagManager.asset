@@ -4,10 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - startpoint
+  
   - enemy
   - fiende
   - Camera
   - GameMenu
+  - StartButton
+  - QuitButton
   layers:
   - Default
   - TransparentFX
