@@ -11,7 +11,11 @@ public class pathpart2 : MonoBehaviour
 
     int waypointindex = 0;
 
+    public GameObject player;
 
+    public float speed;
+
+    public float rotationModifier;
 
     // Start is called before the first frame update
     void Start()
@@ -22,8 +26,16 @@ public class pathpart2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
+
         Move();
-    }
+
+        
+
+    
+    
+
+}
     void Move()
     {
         transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointindex].transform.position, movespeed * Time.deltaTime);
@@ -36,7 +48,17 @@ public class pathpart2 : MonoBehaviour
             waypointindex = 0;
         }
     }
+    private void FixedUpdate()
+    {
+        if (player != null)
+        {
+            Vector3 vectorToTarget = player.transform.position - transform.position;
+            float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg - rotationModifier;
+            Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+            transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * speed);
+        }
 
+    }
 
 }
 
