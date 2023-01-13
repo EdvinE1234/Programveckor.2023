@@ -6,11 +6,14 @@ TagManager:
   tags:
   - startpoint
   - enemy
+  - enemy
+  - fiende
+  - Camera
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - enemy boi
   - Water
   - UI
   - 
