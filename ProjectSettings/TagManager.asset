@@ -5,10 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - startpoint
-  - enemy
+  
   - enemy
   - fiende
   - Camera
+  - GameMenu
   - StartButton
   - QuitButton
   layers:
