@@ -7,6 +7,8 @@ TagManager:
   - enemy
   - fiende
   - Camera
+  - StartButton
+  - QuitButton
   layers:
   - Default
   - TransparentFX
