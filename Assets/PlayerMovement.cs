@@ -30,19 +30,19 @@ public class PlayerMovement : MonoBehaviour
         AimToMouse();
         if (Input.GetKey(KeyCode.W))
         {
-            rb2d.AddForce(Vector2.up * playerspeed);
+            rb2d.AddForce(Vector2.up * playerspeed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.S))
         {
-            rb2d.AddForce(Vector2.down * playerspeed);
+            rb2d.AddForce(Vector2.down * playerspeed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            rb2d.AddForce(Vector2.right * playerspeed);
+            rb2d.AddForce(Vector2.right * playerspeed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            rb2d.AddForce(Vector2.left * playerspeed);
+            rb2d.AddForce(Vector2.left * playerspeed * Time.deltaTime);
         }
     }
 }
