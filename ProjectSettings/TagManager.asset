@@ -9,13 +9,13 @@ TagManager:
   - fiende
   - Camera
   - GameMenu
-  - StartButton
-  - QuitButton
+  - rotate
+  - waypoints
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - enemy boi
+  - 
   - Water
   - UI
   - 

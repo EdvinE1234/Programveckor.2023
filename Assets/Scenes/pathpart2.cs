@@ -11,7 +11,11 @@ public class pathpart2 : MonoBehaviour
 
     int waypointindex = 0;
 
+    public GameObject player;
 
+    public float speed;
+
+    public float rotationspeed;
 
     // Start is called before the first frame update
     void Start()
@@ -22,8 +26,16 @@ public class pathpart2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
+
         Move();
-    }
+
+        
+
+    
+    
+
+}
     void Move()
     {
         transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointindex].transform.position, movespeed * Time.deltaTime);
@@ -36,7 +48,6 @@ public class pathpart2 : MonoBehaviour
             waypointindex = 0;
         }
     }
-
 
 }
 
