@@ -5,18 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - startpoint
-  
-  - enemy
-  - fiende
-  - Camera
   - GameMenu
-  - StartButton
-  - QuitButton
+  - rotate
+  - waypoints
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - enemy boi
+  - 
   - Water
   - UI
   - 

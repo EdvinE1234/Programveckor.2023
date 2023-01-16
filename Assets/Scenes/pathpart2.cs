@@ -15,7 +15,7 @@ public class pathpart2 : MonoBehaviour
 
     public float speed;
 
-    public float rotationModifier;
+    public float rotationspeed;
 
     // Start is called before the first frame update
     void Start()

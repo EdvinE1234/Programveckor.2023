@@ -6,7 +6,8 @@ public class rotation : MonoBehaviour
 {
     public float rotatespeed;
     public bool autorotate;
-    // Update is called once per frame
+    // Update is called once per frame    
+
     void Update()
     {
         if (autorotate)
@@ -14,4 +15,4 @@ public class rotation : MonoBehaviour
             transform.Rotate(0, 0 , rotatespeed * Time.deltaTime);
         }
     }
-}
+} 
