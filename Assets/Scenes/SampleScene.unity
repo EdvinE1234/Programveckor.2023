@@ -489,6 +489,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83129c629df8fbb458238ac36e325f7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStart: 0
+  isQuit: 0
 --- !u!1 &695073841
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,3 +945,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83129c629df8fbb458238ac36e325f7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStart: 0
+  isQuit: 0
