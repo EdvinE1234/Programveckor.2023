@@ -45,7 +45,7 @@ public class FieldOfView : MonoBehaviour
                 if(!Physics2D.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionLayer))
                 {
                     CanSeePlayer = true;
-                    
+                    Destroy(playerRef);
                 }
                 else
                 {
