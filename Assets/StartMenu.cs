@@ -10,7 +10,7 @@ public class StartMenu : MonoBehaviour
     {
         if(isStart)
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(1);  
             
         }
         if(isQuit)
