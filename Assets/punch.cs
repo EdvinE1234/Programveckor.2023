@@ -8,15 +8,20 @@ public class punch : MonoBehaviour
     public float range = 0.5f;
     public LayerMask enemyLayers;
     public GameObject enemy;
-
-
+    public Animator animator;
+    
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space)) 
         {
-
+            animator.SetBool("kick", true);
             Attack();
+            
+        }
+        if(Input.GetKeyUp(KeyCode.Space))
+        {
+            animator.SetBool("kick", false);
         }
         
 
