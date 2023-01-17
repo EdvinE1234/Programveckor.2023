@@ -7,6 +7,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     float playerspeed = 10f;
     Rigidbody2D rb2d;
+    public Animator animator;
+    float moveH = 0f;
+    float moveV = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +30,12 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        moveH = Input.GetAxisRaw("Horizontal") * playerspeed;
+        moveV = Input.GetAxisRaw("Vertical") * playerspeed;
+
+        animator.SetFloat("speed", Mathf.Abs(moveH));
+        animator.SetFloat("speed", Mathf.Abs(moveV));
+
         AimToMouse();
         if (Input.GetKey(KeyCode.W))
         {
@@ -39,10 +48,12 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             rb2d.AddForce(Vector2.right * playerspeed * Time.deltaTime);
+            animator.SetFloat("speed", Mathf.Abs(moveH));
         }
         if (Input.GetKey(KeyCode.A))
         {
             rb2d.AddForce(Vector2.left * playerspeed * Time.deltaTime);
+            animator.SetFloat("speed", Mathf.Abs(moveH));
         }
     }
 }
