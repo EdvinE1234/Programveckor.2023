@@ -6,8 +6,20 @@ public class FieldOfView : MonoBehaviour
 {
     public float radius = 5f;
     [Range(1, 360)]public float angle = 45f;
+
     public LayerMask targetLayer;
     public LayerMask obstructionLayer;
+
+    [SerializeField]
+    Transform player;
+
+    [SerializeField]
+    float moveSpeed;
+
+    Rigidbody2D rb2d;
+
+    private float distance;
+
 
     public GameObject playerRef;
 
@@ -16,18 +28,23 @@ public class FieldOfView : MonoBehaviour
     void Start()
     {
         playerRef = GameObject.FindGameObjectWithTag("Player");
-        StartCoroutine(FOVCheck());
+       StartCoroutine(FOVCheck());
     }
 
-    private IEnumerator FOVCheck()
+   private IEnumerator FOVCheck()
     {
-        WaitForSeconds wait = new WaitForSeconds(0.2f);
+        WaitForSeconds wait = new WaitForSeconds(0.0001f);
 
         while (true)
         {
             yield return wait;
             FOV();
         }
+    }
+    
+    void StopChasingPlayer()
+    {
+        rb2d.velocity = new Vector2(0, 0);
     }
 
     private void FOV()
@@ -45,11 +62,15 @@ public class FieldOfView : MonoBehaviour
                 if(!Physics2D.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionLayer))
                 {
                     CanSeePlayer = true;
-                    Destroy(playerRef);
+                    AimToPlayer();
+                    ChasePlayer();
+                    
+                    
                 }
                 else
                 {
                     CanSeePlayer = false;
+                    
                 }
             }
             else
@@ -64,6 +85,34 @@ public class FieldOfView : MonoBehaviour
 
         
     }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        if (collision.gameObject.tag == "Player")
+        {
+            Destroy(collision.gameObject);
+
+        }
+    }
+
+
+    void AimToPlayer()
+    {
+        Vector3 playerPosition = player.position;
+        Vector2 direction = playerPosition - transform.position;
+        float angle = Vector2.SignedAngle(Vector2.up, direction);
+        transform.eulerAngles = new Vector3(0, 0, angle);
+    }
+
+    void ChasePlayer()
+    {
+        distance = Vector2.Distance(transform.position, player.transform.position);
+        Vector2 direction = player.transform.position - transform.position;
+
+        transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+    }
+
     public void OnDrawGizmos()
     {
             Gizmos.color = Color.white;
