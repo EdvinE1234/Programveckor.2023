@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class FieldOfView : MonoBehaviour
 {
+
+    public GameObject deathMenu;
     public float radius = 5f;
     [Range(1, 360)]public float angle = 45f;
 
     public LayerMask targetLayer;
     public LayerMask obstructionLayer;
+
+    public Animator animator;
 
     [SerializeField]
     Transform player;
@@ -23,12 +27,21 @@ public class FieldOfView : MonoBehaviour
 
     public GameObject playerRef;
 
+    [SerializeField]
+    Transform[] waypoints;
+    [SerializeField]
+    float movespeed = 1f;
+
+    int waypointindex = 0;
+
     public bool CanSeePlayer { get; private set; }
 
     void Start()
     {
         playerRef = GameObject.FindGameObjectWithTag("Player");
-       StartCoroutine(FOVCheck());
+        StartCoroutine(FOVCheck());
+        transform.position = waypoints[waypointindex].transform.position;
+        
     }
 
    private IEnumerator FOVCheck()
@@ -71,6 +84,7 @@ public class FieldOfView : MonoBehaviour
                 {
                     CanSeePlayer = false;
                     
+                    
                 }
             }
             else
@@ -81,6 +95,7 @@ public class FieldOfView : MonoBehaviour
         else if (CanSeePlayer)
         {
             CanSeePlayer = false;
+            
         }
 
         
@@ -89,9 +104,12 @@ public class FieldOfView : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (collision.gameObject.tag == "Player" && CanSeePlayer = true)
+        if (CanSeePlayer == true && collision.gameObject.tag == "Player")
         {
-            Destroy(collision.gameObject);
+            
+            deathMenu.SetActive(true);
+            animator.Play("deathmenuanim");
+            
 
         }
     }
@@ -104,6 +122,13 @@ public class FieldOfView : MonoBehaviour
         float angle = Vector2.SignedAngle(Vector2.up, direction);
         transform.eulerAngles = new Vector3(0, 0, angle);
     }
+
+    void AimToWaypoint()
+    {
+        Vector2 direction = waypoints[waypointindex].transform.position - transform.position;
+        float angle = Vector2.SignedAngle(Vector2.up, direction);
+        transform.eulerAngles = new Vector3(0, 0, angle);
+    }        
 
     void ChasePlayer()
     {
@@ -138,9 +163,31 @@ public class FieldOfView : MonoBehaviour
 
         return new Vector2(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
     }
+
+    void WaypointMove()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointindex].transform.position, movespeed * Time.deltaTime);
+        if (transform.position == waypoints[waypointindex].transform.position)
+        {
+            waypointindex += 1;
+        }
+        if (waypointindex == waypoints.Length)
+        {
+            waypointindex = 0;
+        }
+    }
+
     
+
     void Update()
     {
+        if (CanSeePlayer == false)
+        {
+            WaypointMove();
+            AimToWaypoint();
+        }
+        
+        
 
         
     }

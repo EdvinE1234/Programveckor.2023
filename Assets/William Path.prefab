@@ -232,14 +232,14 @@ GameObject:
   m_Component:
   - component: {fileID: 8400547609516517361}
   - component: {fileID: 8400547609516517360}
-  - component: {fileID: 8400547609516517363}
   - component: {fileID: 8400547609516517366}
   - component: {fileID: 17664218}
   - component: {fileID: 17664219}
   - component: {fileID: 17664224}
+  - component: {fileID: 1362242494}
   m_Layer: 0
   m_Name: William Path
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -313,29 +313,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8400547609516517363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8400547609516517362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b302faf76843e5a469c93841aac36e0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  movespeed: 3
-  player: {fileID: 0}
-  speed: 0
-  rotationspeed: 0
 --- !u!60 &8400547609516517366
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -361,12 +338,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.9492569, y: 0.6245899}
-      - {x: 0, y: 0.5773587}
-      - {x: -0.6858635, y: 0.85135746}
-      - {x: -0.98480797, y: 0.38573837}
-      - {x: -0.8544483, y: -0.42369455}
-      - {x: 0.87132454, y: -0.37305874}
+    - - {x: 0.74321556, y: 0.59936047}
+      - {x: 0.058870316, y: 0.6866865}
+      - {x: -0.6396084, y: 0.7378247}
+      - {x: -0.7451267, y: 0.38153362}
+      - {x: -0.7697315, y: -0.46130794}
+      - {x: 0.7629509, y: -0.46222848}
 --- !u!95 &17664218
 Animator:
   serializedVersion: 4
@@ -413,7 +390,7 @@ MonoBehaviour:
   - {x: 0.6523819, y: -0.16074109, z: 0}
   m_ShapePathHash: -2023466571
   m_Mesh: {fileID: 0}
-  m_InstanceId: 29006
+  m_InstanceId: -24068
 --- !u!114 &17664224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -430,8 +407,40 @@ MonoBehaviour:
   angle: 45
   targetLayer:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 8
   obstructionLayer:
     serializedVersion: 2
-    m_Bits: 260
+    m_Bits: 324
+  animator: {fileID: 0}
+  player: {fileID: 0}
+  moveSpeed: 7
   playerRef: {fileID: 0}
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  movespeed: 2
+--- !u!50 &1362242494
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8400547609516517362}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 10
+  m_AngularDrag: 10
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
