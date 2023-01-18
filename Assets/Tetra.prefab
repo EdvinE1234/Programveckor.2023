@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 229d7a7efc55dba4c998ada21ac714a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerspeed: 7500
+  playerspeed: 15000
   animator: {fileID: 3426568470141765975}
 --- !u!114 &3426568470141765974
 MonoBehaviour:
@@ -200,6 +200,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   enemy: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!95 &3426568470141765975
 Animator:
   serializedVersion: 4

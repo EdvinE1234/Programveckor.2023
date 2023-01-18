@@ -5,11 +5,11 @@ using UnityEngine;
 public class SoundEffectPlayer : MonoBehaviour
 {
     public AudioSource src;
-    public AudioClip sfx;
+    public AudioClip start, quit;
 
     public void Start()
     {
-        src.clip = sfx;
+        src.clip = start;
         src.Play();
 
 
