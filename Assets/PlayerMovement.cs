@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public AudioSource footstepsSound;
     [SerializeField]
     float playerspeed = 10f;
     Rigidbody2D rb2d;
@@ -54,6 +55,18 @@ public class PlayerMovement : MonoBehaviour
         {
             rb2d.AddForce(Vector2.left * playerspeed * Time.deltaTime);
             animator.SetFloat("speed", Mathf.Abs(moveH));
+
+
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+            {
+                footstepsSound.enabled = false;
+            }
+
+            else
+            {
+                footstepsSound.enabled = true;
+                
+            }
         }
     }
 }

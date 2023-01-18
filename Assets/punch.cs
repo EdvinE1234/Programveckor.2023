@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class punch : MonoBehaviour
 {
+    public AudioSource hit;
+    public AudioSource miss;
     public Transform attackPoint;
     public float range = 0.5f;
     public LayerMask enemyLayers;
@@ -22,6 +24,8 @@ public class punch : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space))
         {
             animator.SetBool("kick", false);
+
+           miss.Play();
         }
 
 
@@ -39,6 +43,9 @@ public class punch : MonoBehaviour
 
 
             Debug.Log("penis");
+
+            hit.Play();
+            
         }
     }
     [ContextMenu(itemName: "död")]
