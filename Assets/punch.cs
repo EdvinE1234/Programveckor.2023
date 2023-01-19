@@ -8,6 +8,7 @@ public class punch : MonoBehaviour
     public float range = 0.5f;
     public LayerMask enemyLayers;
     public GameObject enemy;
+    
     public Animator animator;
     public Animator enemyanimator;
     // Update is called once per frame
@@ -26,6 +27,7 @@ public class punch : MonoBehaviour
 
 
     }
+    
 
 
     void Attack()
@@ -45,6 +47,8 @@ public class punch : MonoBehaviour
     public void död()
     {
         enemyanimator.Play("vaktdö");
+        
+
     }
        
         
