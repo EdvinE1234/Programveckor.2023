@@ -5,6 +5,7 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     private Animator _animator;
+    public AudioSource fortnite;
 
     
     private void Awake()
@@ -16,5 +17,7 @@ public class Door : MonoBehaviour
     public void Open()
     {
         _animator.SetTrigger(name: "Open");
+
+        fortnite.Play();
     }
 }
