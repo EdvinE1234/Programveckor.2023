@@ -403,6 +403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7792497a5a6a7484b8e6ce7e165b08cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathMenu: {fileID: 0}
   radius: 5
   angle: 45
   targetLayer:
@@ -412,9 +413,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 324
   animator: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 3426568470141765960, guid: 3d748d76809ab0e45a516abe428f6e70, type: 3}
   moveSpeed: 7
-  playerRef: {fileID: 0}
+  playerRef: {fileID: 3426568470141765964, guid: 3d748d76809ab0e45a516abe428f6e70, type: 3}
   waypoints:
   - {fileID: 0}
   - {fileID: 0}

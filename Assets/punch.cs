@@ -40,9 +40,9 @@ public class punch : MonoBehaviour
 
         foreach (Collider2D enemy in hitenemies)
         {
-            död();
+            
             Destroy(enemy.gameObject, 1.6f);
-
+            död();
 
             Debug.Log("penis");
 
