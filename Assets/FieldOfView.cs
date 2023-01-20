@@ -77,7 +77,7 @@ public class FieldOfView : MonoBehaviour
                     CanSeePlayer = true;
                     AimToPlayer();
                     ChasePlayer();
-                    print("ser spelaren");
+                    
                     
                 }
                 else
@@ -97,6 +97,7 @@ public class FieldOfView : MonoBehaviour
             CanSeePlayer = false;
             
         }
+                
 
         
     }
