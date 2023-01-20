@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class FieldOfView : MonoBehaviour
 {
@@ -139,24 +140,7 @@ public class FieldOfView : MonoBehaviour
         transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, moveSpeed * Time.deltaTime);
     }
 
-    public void OnDrawGizmos()
-    {
-            Gizmos.color = Color.white;
-            UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.forward, radius);
-
-        Vector3 angle01 = DirectionFromAngle(-transform.eulerAngles.z,  -angle / 2);
-        Vector3 angle02 = DirectionFromAngle(-transform.eulerAngles.z,   angle / 2);
-
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(transform.position, transform.position + angle01 * radius);
-        Gizmos.DrawLine(transform.position, transform.position + angle02 * radius);
-
-        if (CanSeePlayer)
-        {
-            Gizmos.color = Color.green;
-            Gizmos.DrawLine(transform.position, playerRef.transform.position);
-        }
-    }
+    
 
     private Vector2 DirectionFromAngle(float eulerY, float angleInDegrees)
     {
