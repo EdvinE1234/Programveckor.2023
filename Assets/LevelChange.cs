@@ -14,7 +14,7 @@ public class LevelChange : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(2);
         }
     }
     // Update is called once per frame
