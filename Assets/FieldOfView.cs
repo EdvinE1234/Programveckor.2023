@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
 public class FieldOfView : MonoBehaviour
 {
@@ -98,7 +97,6 @@ public class FieldOfView : MonoBehaviour
             CanSeePlayer = false;
             
         }
-                
 
         
     }

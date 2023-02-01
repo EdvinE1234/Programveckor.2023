@@ -59,12 +59,12 @@ public class PlayerMovement : MonoBehaviour
 
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
             {
-                footstepsSound.enabled = false;
+                footstepsSound.enabled = true;
             }
 
             else
             {
-                footstepsSound.enabled = true;
+                footstepsSound.enabled = false;
                 
             }
         }
