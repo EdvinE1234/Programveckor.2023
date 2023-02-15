@@ -29,9 +29,4 @@ public class CollisionDetector : MonoBehaviour
             _collisionExit?.Invoke();
         }
     }
-
-
-
-
-
 }
