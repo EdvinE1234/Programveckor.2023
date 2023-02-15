@@ -21,7 +21,8 @@ public class Deathmenu : MonoBehaviour
 
     public void restartbutton()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //kollar vilken scen du är i, och loadar den scenen när du trycker på restart. (Philip)
     }
     public void menubutton()
     {
