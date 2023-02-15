@@ -117,6 +117,7 @@ public class FieldOfView : MonoBehaviour
 
     void AimToPlayer()
     {
+        // gör så att fienden kollar ´mot nästa waypoint - william A
         Vector3 playerPosition = player.position;
         Vector2 direction = playerPosition - transform.position;
         float angle = Vector2.SignedAngle(Vector2.up, direction);
@@ -149,6 +150,7 @@ public class FieldOfView : MonoBehaviour
 
     void WaypointMove()
     {
+        // gör så att fienden går i måt nästa waypoint i sin cycele(loopar när den är klar) - william A
         transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointindex].transform.position, movespeed * Time.deltaTime);
         if (transform.position == waypoints[waypointindex].transform.position)
         {
