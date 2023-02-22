@@ -7,7 +7,7 @@ public class Door : MonoBehaviour
     private Animator _animator;
     public AudioSource fortnite;
 
-    
+    // för att animera dörrarna - hugo
     private void Awake()
     {
         _animator = GetComponent<Animator>();

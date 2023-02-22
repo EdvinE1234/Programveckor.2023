@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelChange : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // byter scene och nivå med scenemanager. - hugo
     void Start()
     {
         

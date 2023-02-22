@@ -651,7 +651,6 @@ GameObject:
   - component: {fileID: 3426568470141765962}
   - component: {fileID: 3426568470141765965}
   - component: {fileID: 3426568470141765961}
-  - component: {fileID: 3426568470141765974}
   - component: {fileID: 3426568470141765975}
   m_Layer: 3
   m_Name: Tetra
@@ -792,28 +791,6 @@ MonoBehaviour:
   footstepsSound: {fileID: 0}
   playerspeed: 5000
   animator: {fileID: 3426568470141765975}
---- !u!114 &3426568470141765974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3426568470141765964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 145b57fb445d0ca4eb1cae3fca8d9db3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hit: {fileID: 0}
-  miss: {fileID: 0}
-  attackPoint: {fileID: 3426568469005753027}
-  range: 1
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 1
-  enemy: {fileID: 0}
-  animator: {fileID: 3426568470141765975}
-  enemyanimator: {fileID: 0}
 --- !u!95 &3426568470141765975
 Animator:
   serializedVersion: 4

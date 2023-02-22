@@ -15,7 +15,7 @@ public class GameMenu : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    // koden för pausmenyn. - hugo
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

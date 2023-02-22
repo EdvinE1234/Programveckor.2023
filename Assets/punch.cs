@@ -11,8 +11,17 @@ public class punch : MonoBehaviour
     public LayerMask enemyLayers;
     public GameObject enemy;
     
+
+
+
     public Animator animator;
-    public Animator enemyanimator;
+    public Animator[] enemyanimator;
+
+    private void Start()
+    {
+        
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -53,8 +62,7 @@ public class punch : MonoBehaviour
     [ContextMenu(itemName: "död")]
     public void död()
     {
-        enemyanimator.Play("vaktdö");
-        
+        enemyanimator[0].Play("vaktdö");
 
     }
        
