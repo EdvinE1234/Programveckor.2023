@@ -414,7 +414,7 @@ MonoBehaviour:
     m_Bits: 324
   animator: {fileID: 0}
   player: {fileID: 3426568470141765960, guid: 3d748d76809ab0e45a516abe428f6e70, type: 3}
-  moveSpeed: 7
+  moveSpeed: 15
   playerRef: {fileID: 3426568470141765964, guid: 3d748d76809ab0e45a516abe428f6e70, type: 3}
   waypoints:
   - {fileID: 0}
@@ -423,7 +423,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  movespeed: 2
+  movespeed: 7
 --- !u!50 &1362242494
 Rigidbody2D:
   serializedVersion: 4
