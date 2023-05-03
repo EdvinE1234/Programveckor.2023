@@ -7,7 +7,7 @@ public class Deathmenu : MonoBehaviour
 {
     [SerializeField]
     private GameObject _Deathmenu;
-    // Start is called before the first frame update
+    // koden för dödmenyn. - hugo
     void Start()
     {
         

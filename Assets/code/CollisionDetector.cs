@@ -13,7 +13,8 @@ public class CollisionDetector : MonoBehaviour
 
     [SerializeField]
     private UnityEvent _collisionExit;
-
+    // vad som ska hända när knappen till dörren aktiveras. - hugo
+    // colliderscript är den script som ska aktivera knappen t.ex playermovement. - hugo
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.GetComponent(_colliderScript))

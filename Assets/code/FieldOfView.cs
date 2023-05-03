@@ -7,8 +7,9 @@ public class FieldOfView : MonoBehaviour
 
     public GameObject deathMenu;
     public float radius = 5f;
-    [Range(1, 360)]public float angle = 45f;
+    [Range(1, 360)]public float angle = 45f; //Fiendens range för att upptäcka spelaren - Samuel
 
+    //Lager för att veta om fienden kan upptäcka spelaren - Samuel
     public LayerMask targetLayer;
     public LayerMask obstructionLayer;
 
@@ -38,12 +39,12 @@ public class FieldOfView : MonoBehaviour
 
     void Start()
     {
-        playerRef = GameObject.FindGameObjectWithTag("Player");
+        playerRef = GameObject.FindGameObjectWithTag("Player"); 
         StartCoroutine(FOVCheck());
         transform.position = waypoints[waypointindex].transform.position;
         
     }
-
+   //Väntar innan den kollar igen om det finns något innan för dess range - Samuel
    private IEnumerator FOVCheck()
     {
         WaitForSeconds wait = new WaitForSeconds(0.0001f);
@@ -54,29 +55,29 @@ public class FieldOfView : MonoBehaviour
             FOV();
         }
     }
-    
+    //Slutar jaga spelaren - Samuel
     void StopChasingPlayer()
     {
         rb2d.velocity = new Vector2(0, 0);
     }
-
-    private void FOV()
+    //Kollar efter spelaren - Samuel
+    private void FOV() 
     {
-        Collider2D[] rangeCheck = Physics2D.OverlapCircleAll(transform.position, radius, targetLayer);
+        Collider2D[] rangeCheck = Physics2D.OverlapCircleAll(transform.position, radius, targetLayer); 
 
         if (rangeCheck.Length > 0)
         {
             Transform target = rangeCheck[0].transform;
-            Vector2 directionToTarget = (target.position - transform.position).normalized;
+            Vector2 directionToTarget = (target.position - transform.position).normalized; 
 
             if(Vector2.Angle(transform.up, directionToTarget) < angle / 2)
             {
-                float distanceToTarget = Vector2.Distance(transform.position, target.position);
-                if(!Physics2D.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionLayer))
+                float distanceToTarget = Vector2.Distance(transform.position, target.position); 
+                if(!Physics2D.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionLayer)) //Kollar om spelaren är inom fiendens range - Samuel
                 {
-                    CanSeePlayer = true;
-                    AimToPlayer();
-                    ChasePlayer();
+                    CanSeePlayer = true; //Vänder sig till och jagar spelaren när den ser den - Samuel
+                    AimToPlayer(); //Vänder sig mot spelaren - Samuel
+                    ChasePlayer(); //Jagar spelaren - Samuel
                     
                     
                 }
@@ -100,7 +101,7 @@ public class FieldOfView : MonoBehaviour
 
         
     }
-
+    
     public void OnCollisionEnter2D(Collision2D collision)
     {
 
@@ -114,10 +115,10 @@ public class FieldOfView : MonoBehaviour
         }
     }
 
-
+    //Fienden vänder sig mot spelaren när den upptäcker den - Samuel
     void AimToPlayer()
     {
-        // gör så att fienden kollar ´mot nästa waypoint - william A
+        
         Vector3 playerPosition = player.position;
         Vector2 direction = playerPosition - transform.position;
         float angle = Vector2.SignedAngle(Vector2.up, direction);
@@ -125,12 +126,12 @@ public class FieldOfView : MonoBehaviour
     }
 
     void AimToWaypoint()
-    {
+    {   // Gör så att fienden kollar mot nästa waypoint - William A
         Vector2 direction = waypoints[waypointindex].transform.position - transform.position;
         float angle = Vector2.SignedAngle(Vector2.up, direction);
         transform.eulerAngles = new Vector3(0, 0, angle);
     }        
-
+    //Jagar spelaren när den upptäcker den - Samuel
     void ChasePlayer()
     {
         distance = Vector2.Distance(transform.position, player.transform.position);
@@ -140,7 +141,7 @@ public class FieldOfView : MonoBehaviour
     }
 
     
-
+    //Samuel
     private Vector2 DirectionFromAngle(float eulerY, float angleInDegrees)
     {
         angleInDegrees += eulerY;
@@ -150,7 +151,7 @@ public class FieldOfView : MonoBehaviour
 
     void WaypointMove()
     {
-        // gör så att fienden går i måt nästa waypoint i sin cycele(loopar när den är klar) - william A
+        // gör så att fienden går mot nästa waypoint i sin cycle(loopar när den är klar) - William A
         transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointindex].transform.position, movespeed * Time.deltaTime);
         if (transform.position == waypoints[waypointindex].transform.position)
         {
@@ -165,7 +166,7 @@ public class FieldOfView : MonoBehaviour
     
 
     void Update()
-    {
+    {   
         if (CanSeePlayer == false)
         {
             WaypointMove();

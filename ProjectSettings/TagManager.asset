@@ -11,6 +11,7 @@ TagManager:
   - GameMenu
   - rotate
   - waypoints
+  - enemy1
   layers:
   - Default
   - TransparentFX
